@@ -16,7 +16,8 @@ services:
     restart: unless-stopped
 
   openclaw:
-    image: hasokeyk/openclaw-ollama:latest # Senin Docker Hub imajın
+    build: . # Yerel dosyadan derleme yeteneğini geri getirdik
+    image: hasokeyk/openclaw-ollama:latest # Derlendiğinde veya çekildiğinde kullanılacak isim
     container_name: openclaw-app
     ports:
       - "${OPENCLAW_PORT:-18789}:18789"
