@@ -1,0 +1,42 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama-cuda
+    ports:
+      - "${OLLAMA_PORT:-11435}:11434"
+    volumes:
+      - ./app/ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+
+  openclaw:
+    build: .
+    container_name: openclaw-app
+    ports:
+      - "${OPENCLAW_PORT:-18789}:18789"
+      - "18791:18791"
+    stdin_open: true
+    tty: true
+    environment:
+      - OPENCLAW_STATE_DIR=/root/.openclaw
+      - NODE_ENV=production
+      - OPENCLAW_GATEWAY_PORT=18789
+      - OPENCLAW_GATEWAY_HOST=0.0.0.0
+      - OLLAMA_HOST=http://ollama:11434
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_API_KEY=ollama-local
+      - TAVILY_API_KEY=${TAVILY_API_KEY}
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - OPENCLAW_CHANNELS_TELEGRAM_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - GOOGLE_GENERATIVE_AI_API_KEY=${GOOGLE_GENERATIVE_AI_API_KEY}
+    volumes:
+      - ./app/openclaw:/root/.openclaw
+    depends_on:
+      - ollama
+    restart: unless-stopped

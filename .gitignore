@@ -1,0 +1,10 @@
+# Docker persistence data
+app/ollama/
+app/openclaw/
+
+# Sensitive credentials
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
