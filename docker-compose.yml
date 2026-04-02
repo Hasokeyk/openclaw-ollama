@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
 
   openclaw:
-    build: .
+    image: hasokeyk/openclaw-ollama:latest # Senin Docker Hub imajın
     container_name: openclaw-app
     ports:
       - "${OPENCLAW_PORT:-18789}:18789"

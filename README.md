@@ -1,36 +1,23 @@
 # OpenClaw + Ollama Ultimate AI Stack
 
-Bu repo, **OpenClaw** asistanını ve **Ollama**'yı tek bir Docker yapısında birleştiren, NVIDIA GPU (CUDA) destekli, Telegram ve İnternet erişimi hazır profesyonel bir yapay zeka istifidir.
+Bu proje, NVIDIA GPU destekli **OpenClaw** ve **Ollama**'yı tek bir Docker komutuyla ayağa kaldırmanızı sağlar.
 
-## 🚀 Özellikler
-- **NVIDIA GPU Desteği**: Yerel modellerinizi ekran kartınızın tam performansıyla çalıştırın.
-- **Telegram Entegrasyonu**: Asistanınıza her yerden erişin.
-- **İnternet Erişimi**: Tavily API ile asistanınız güncel haberleri araştırabilir.
-- **Gemini Desteği**: Google Gemini API'yi ikincil beyin olarak kullanın.
-- **Socat Bridge**: Docker ağ kısıtlamalarını aşan otomatik ağ köprüleri.
+## 🚀 Hızlı Başlangıç
 
-## 🛠️ Kurulum
+Sadece `docker-compose.yml` ve `.env.example` dosyalarını indirmeniz yeterlidir.
 
-1. **Repoyu Klonlayın**:
+1. **Ayarları Yapın**:
+   `.env.example` dosyasının adını `.env` yapın ve API anahtarlarınızı girin.
+
+2. **Çalıştırın**:
    ```bash
-   git clone https://github.com/Hasokeyk/openclaw-ollama.git
-   cd openclaw-ollama
+   docker-compose up -d
    ```
-
-2. **Ayarları Yapın**:
-   `.env.example` dosyasının adını `.env` yapın ve kendi API anahtarlarınızı girin:
-   ```bash
-   cp .env.example .env
-   ```
-
-3. **Sistemi Başlatın**:
-   ```bash
-   docker-compose up --build -d
-   ```
+   *(Sistem otomatik olarak `hasokeyk/openclaw-ollama` imajını çekecektir)*
 
 ## 🌐 Erişim
-- **OpenClaw Arayüzü**: `http://localhost:18789`
+- **OpenClaw**: `http://localhost:18789`
 - **Ollama API**: `http://localhost:11435`
 
 ---
-*Created with Gemini CLI*
+*Powered by hasokeyk*
