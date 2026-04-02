@@ -13,12 +13,12 @@ Bu repo, **OpenClaw** asistanını ve **Ollama**'yı tek bir Docker yapısında 
 
 1. **Repoyu Klonlayın**:
    ```bash
-   git clone <repo-url>
-   cd openclaw-ollama-stack
+   git clone https://github.com/Hasokeyk/openclaw-ollama.git
+   cd openclaw-ollama
    ```
 
 2. **Ayarları Yapın**:
-   `.env.example` dosyasının adını `.env` yapın ve anahtarlarınızı girin:
+   `.env.example` dosyasının adını `.env` yapın ve kendi API anahtarlarınızı girin:
    ```bash
    cp .env.example .env
    ```
@@ -31,13 +31,6 @@ Bu repo, **OpenClaw** asistanını ve **Ollama**'yı tek bir Docker yapısında 
 ## 🌐 Erişim
 - **OpenClaw Arayüzü**: `http://localhost:18789`
 - **Ollama API**: `http://localhost:11435`
-
-## 🐳 Docker İmajı Olarak Yayınlama
-İmajı Docker Hub'da yayınlamak için:
-```bash
-docker tag oo-openclaw:latest kullaniciadi/openclaw-ollama:v1.0
-docker push kullaniciadi/openclaw-ollama:v1.0
-```
 
 ---
 *Created with Gemini CLI*
